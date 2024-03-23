@@ -69,7 +69,8 @@ datetime = { version = "0.5.1", default_features = false }
 pretty_assertions = "0.7"
 
 [features]
-default = ["with_idna", "with_tls", "with_rustls", "with_https"]
+default = ["with_idna", "with_tls", "with_nativetls", "with_https"]
+feature_in_dragonos_0_9 = ["with_idna", "with_tls", "with_rustls", "with_https"]
 with_idna = ["dns/with_idna"]
 
 with_tls = ["dns-transport/with_tls"]
