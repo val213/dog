@@ -1,5 +1,5 @@
 TOOLCHAIN="+nightly-2023-08-15-x86_64-unknown-linux-gnu"
-RUSTFLAGS+="--features feature_in_dragonos_0_9"
+RUSTFLAGS+=""
 
 ifdef DADK_CURRENT_BUILD_DIR
 # 如果是在dadk中编译，那么安装到dadk的安装目录中
@@ -20,10 +20,10 @@ else
 endif
 
 run:
-	RUSTFLAGS=$(RUSTFLAGS) cargo $(TOOLCHAIN) run --target $(RUST_TARGET)
+	RUSTFLAGS=$(RUSTFLAGS) cargo $(TOOLCHAIN) run --target $(RUST_TARGET) --features "with_rustls"
 
 build:
-	RUSTFLAGS=$(RUSTFLAGS) cargo $(TOOLCHAIN) build --target $(RUST_TARGET)
+	RUSTFLAGS=$(RUSTFLAGS) cargo $(TOOLCHAIN) build --target $(RUST_TARGET) --features "with_rustls"
 
 clean:
 	RUSTFLAGS=$(RUSTFLAGS) cargo $(TOOLCHAIN) clean --target $(RUST_TARGET)
